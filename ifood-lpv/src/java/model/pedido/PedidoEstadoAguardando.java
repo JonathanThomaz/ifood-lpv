@@ -16,6 +16,6 @@ public class PedidoEstadoAguardando extends PedidoEstado {
         this.estadoMsg = "Aguardando aprovação";
         this.nome = "aguardando";
     }
-
+   
     
 }

@@ -17,4 +17,5 @@ public class PedidoEstadoAprovado extends PedidoEstado {
         this.nome = "aprovado";
 
     }   
+
 }
