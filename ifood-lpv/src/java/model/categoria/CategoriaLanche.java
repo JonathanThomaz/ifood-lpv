@@ -12,7 +12,7 @@ package model.categoria;
 public class CategoriaLanche extends Categoria{
     
     public CategoriaLanche(){
-        this.setNome("Japonesa");
+        this.setNome("Lanche");
     }
     
 }

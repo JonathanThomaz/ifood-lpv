@@ -9,27 +9,27 @@ package model.promocao;
  *
  * @author Artur
  */
-public class PromocaoNenhuma implements Promocao{
-    
+public class PromocaoPadrao implements Promocao{
+        
     public int id;
 
-    public PromocaoNenhuma() {
-        this.id = 1;
+    public PromocaoPadrao() {
+        this.id = 2;
     }
 
     @Override
     public String getNome() {
-        return "Nenhuma";
+        return "Padrao";
     }
 
     @Override
     public int getId() {
-        return 1;
+        return 2;
     }
 
     @Override
     public float getDesconto() {
-        return 0;
+        return 10;
     }
 
 }
