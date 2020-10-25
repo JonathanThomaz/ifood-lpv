@@ -3,18 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.login;
-
-import java.util.ArrayList;
+package model.usuario;
 
 /**
  *
  * @author Artur
  */
-public abstract class TipoConta {
-    
-    ArrayList listaPermissao = new ArrayList();
-    
-    public abstract String getDescricaoConta();
+public class TipoContaConsumidor extends TipoConta {
 
+    @Override
+    public String getDescricaoConta() {
+        return "Consumidor";
+    }
 }

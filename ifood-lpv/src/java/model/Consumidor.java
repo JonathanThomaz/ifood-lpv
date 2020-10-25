@@ -5,7 +5,7 @@
  */
 package model;
 
-import model.login.Conta;
+import model.usuario.Conta;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -20,10 +20,8 @@ public class Consumidor implements Observer {
     private String cpf;
     private String nascimento;
 
-    private Contato contato;
     private Conta conta;
-    private Endereco endereco;
-
+  
     @Override
     public void update(Observable o, Object arg) {
        

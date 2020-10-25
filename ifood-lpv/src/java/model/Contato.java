@@ -11,16 +11,15 @@ import model.usuario.Conta;
  *
  * @author Artur
  */
-public class Loja {
+public class Contato {
     
     private long id;
-    private String nome;
-    private String cnpj;
-    private String descricao;
-    private String imagem;
+    private String telefone;
+    private String ddd;
+    private String email;
+    private String telefoneComplementar;
 
-    private Endereco endereco;
     private Conta conta;
-
     
+
 }

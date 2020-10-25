@@ -3,16 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.login;
+package model.usuario;
+
+import model.Endereco;
 
 /**
  *
  * @author Artur
  */
-public class TipoContaConsumidor extends TipoConta {
-
-    @Override
-    public String getDescricaoConta() {
-        return "Consumidor";
-    }
+public class Conta {
+ private long id;
+    private String login;
+    private String senha;
+    
+    private TipoConta tipo;   
+    
 }
