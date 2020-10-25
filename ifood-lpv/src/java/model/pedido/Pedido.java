@@ -3,20 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.usuario;
+package model.pedido;
 
 import java.util.ArrayList;
+import model.Carrinho;
+import model.Consumidor;
+import model.Loja;
 
 /**
  *
  * @author Artur
  */
-public abstract class TipoConta {
+public class Pedido {
     
     private long id;
-    private String tipo;
-    ArrayList listaPermissao = new ArrayList();
-    
-    public abstract String getDescricaoConta();
+    private String valor;
+    private PedidoEstado estado;
+    private ArrayList<Carrinho> carrinho;
+
+    private Loja loja;
+    private Consumidor consumidor;
 
 }

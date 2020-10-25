@@ -3,20 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.usuario;
-
-import java.util.ArrayList;
+package model.categoria;
 
 /**
  *
  * @author Artur
  */
-public abstract class TipoConta {
-    
+public abstract class Categoria {
+
     private long id;
-    private String tipo;
-    ArrayList listaPermissao = new ArrayList();
-    
-    public abstract String getDescricaoConta();
+    private String nome;
 
 }

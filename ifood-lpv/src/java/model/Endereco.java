@@ -5,6 +5,8 @@
  */
 package model;
 
+import model.usuario.Conta;
+
 /**
  *
  * @author mathe
@@ -21,4 +23,5 @@ public class Endereco {
     private String estado;
     private String pais;
 
+    private Conta conta;
 }

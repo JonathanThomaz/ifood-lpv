@@ -5,8 +5,6 @@
  */
 package model.usuario;
 
-import model.Endereco;
-
 /**
  *
  * @author Artur

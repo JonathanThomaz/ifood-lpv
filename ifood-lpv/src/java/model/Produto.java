@@ -5,20 +5,25 @@
  */
 package model;
 
-import model.usuario.Conta;
+import model.categoria.Categoria;
+import model.promocao.Promocao;
 
 /**
  *
  * @author Artur
  */
-public class Loja {
-    
+public class Produto {
+
     private long id;
     private String nome;
-    private String cnpj;
+    private String preco;
+    private String disponivel;
     private String descricao;
     private String imagem;
+    
+    private Categoria categoria;
+    private Promocao promocao;
+    private Loja loja;
 
-    private Conta conta;
-
+    
 }

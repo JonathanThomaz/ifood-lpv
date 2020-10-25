@@ -3,20 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model.usuario;
+package model;
 
-import java.util.ArrayList;
+import model.pedido.Pedido;
 
 /**
  *
  * @author Artur
  */
-public abstract class TipoConta {
+public class Carrinho {
     
     private long id;
-    private String tipo;
-    ArrayList listaPermissao = new ArrayList();
-    
-    public abstract String getDescricaoConta();
+    private Produto produto;
+    private int quantidade;
+    private Pedido pedido;
 
 }

@@ -3,22 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
-
-import model.usuario.Conta;
+package model.promocao;
 
 /**
  *
  * @author Artur
  */
-public class Loja {
+public interface Promocao {
     
-    private long id;
-    private String nome;
-    private String cnpj;
-    private String descricao;
-    private String imagem;
+    public int getId();
 
-    private Conta conta;
+    public String getNome();
+
+    public float getDesconto();
 
 }
