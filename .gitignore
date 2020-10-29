@@ -23,3 +23,5 @@
 hs_err_pid*
 /ifood-lpv/nbproject/private/*
 /ifood-lpv/build/
+nbproject/private/private.properties
+nbproject/private/private.xml
