@@ -62,12 +62,12 @@ CREATE TABLE endereco (
   idEndereco INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   rua VARCHAR(100) NOT NULL,
   bairro VARCHAR(60) NOT NULL,
-  numero INT UNSIGNED NOT NULL,
+  numero VARCHAR(5) NOT NULL,
   cep CHAR(8) NOT NULL,
   complemento VARCHAR(30) NULL,
   cidade VARCHAR(45) NOT NULL,
-  estado CHAR(2) NOT NULL,
-  pais CHAR(3) NOT NULL,
+  estado VARCHAR(20) NOT NULL,
+  pais VARCHAR(20) NOT NULL,
   idConta INT UNSIGNED NULL,
   CONSTRAINT idConta 
   FOREIGN KEY (idConta) REFERENCES conta (idConta)
@@ -146,3 +146,5 @@ CREATE TABLE carrinho (
     ON DELETE NO ACTION ON UPDATE CASCADE
 );
 
+INSERT INTO tipoconta (tipo) 
+VALUES ('Loja'), ('Consumidor');
