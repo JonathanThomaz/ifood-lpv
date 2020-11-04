@@ -1,8 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 02/11/2020, 22:26:08
-    Author     : Artur
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,5 +8,8 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        <a href="cadastroUsuarioConsumidor.jsp">
+            <h3>Cadastro de usuario.</h3>
+        </a>
     </body>
 </html>
