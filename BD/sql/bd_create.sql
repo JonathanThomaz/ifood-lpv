@@ -25,7 +25,7 @@ CREATE TABLE consumidor (
   CPF VARCHAR(11) NOT NULL,
   nascimento DATE NOT NULL,
   idConta INT UNSIGNED  NULL,
-  CONSTRAINT idTipoConta 
+  CONSTRAINT idConta 
   FOREIGN KEY (idConta) REFERENCES conta (idConta) 
 	ON DELETE NO ACTION ON UPDATE CASCADE
 );
