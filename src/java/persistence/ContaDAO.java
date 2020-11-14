@@ -56,14 +56,16 @@ public class ContaDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM conta WHERE login = '" + login + "'");
+            ResultSet rs = st.executeQuery("SELECT conta*, tipoConta.* FROM conta "
+                    + "INNER JOIN contato ON contato.id = consumidor.contato_id "
+                    + "WHERE login = '" + login + "'");
             rs.first();
 
             conta = new Conta();
             conta.setId(rs.getLong("conta.id"));
             conta.setLogin(rs.getString("conta.login"));
             conta.setSenha(rs.getString("conta.senha"));
-            conta.setIdTipo(rs.getLong("conta.tipo"));
+            conta.setIdTipoConta(rs.getLong("conta.idTipoConta"));
         } catch (SQLException e) {
             throw e;
         } finally {
@@ -73,6 +75,28 @@ public class ContaDAO {
         return conta;
 
     }
+    
+    
+    public void update(Conta conta) throws ClassNotFoundException, SQLException {
+
+        Connection conn = null;
+        Statement st = null;
+
+        try {
+            conn = DatabaseLocator.getInstance().getConnection();
+            st = conn.createStatement();
+            st.execute("UPDATE conta "
+                    + "SET login = '" + conta.getLogin() + "', "
+                    + "senha = '" + conta.getSenha() + "' "
+                    + "WHERE id = " + conta.getId() + ";");
+
+        } catch (SQLException e) {
+            throw e;
+        } finally {
+            closeResources(conn, st);
+        }
+    }
+
     
     private void closeResources(Connection conn, Statement st) {
         try {
@@ -85,5 +109,9 @@ public class ContaDAO {
         } catch (SQLException e) {
             System.out.println(e);
         }
+    }
+
+    public Conta get(long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

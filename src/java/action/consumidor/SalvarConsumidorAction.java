@@ -15,6 +15,7 @@ import model.Consumidor;
 import model.Contato;
 import model.Endereco;
 import model.usuario.Conta;
+import model.usuario.TipoContaConsumidor;
 import persistence.ConsumidorDAO;
 import persistence.ContaDAO;
 import persistence.ContatoDAO;
@@ -46,10 +47,12 @@ public class SalvarConsumidorAction implements Action {
         String pais = request.getParameter("txtPais");
 
         try {
+            TipoContaConsumidor tipoConta = new TipoContaConsumidor();
+            
             Conta conta = new Conta();
             conta.setLogin(login);
             conta.setSenha(senha);
-            conta.setIdTipo(2);
+            conta.setTipoConta(tipoConta);
             conta = ContaDAO.getInstance().save(conta);
             
             Contato contato = new Contato();

@@ -64,7 +64,5 @@ public class Consumidor {
     public void setConta(Conta conta) {
         this.conta = conta;
     }
-  
-    
-    
+      
 }
