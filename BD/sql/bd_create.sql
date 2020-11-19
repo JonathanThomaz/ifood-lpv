@@ -25,7 +25,7 @@ CREATE TABLE consumidor (
   CPF VARCHAR(11) NOT NULL,
   nascimento DATE NOT NULL,
   idConta INT UNSIGNED  NULL,
-  CONSTRAINT idConta 
+  CONSTRAINT idContaConsumidor 
   FOREIGN KEY (idConta) REFERENCES conta (idConta) 
 	ON DELETE NO ACTION ON UPDATE CASCADE
 );
@@ -39,7 +39,7 @@ CREATE TABLE cartao (
   ativo TINYINT NOT NULL,
   aprovado TINYINT NOT NULL,
   idConsumidor INT UNSIGNED NULL,
-  CONSTRAINT idConsumidor 
+  CONSTRAINT idConsumidorCartao 
   FOREIGN KEY (idConsumidor) REFERENCES consumidor (idConsumidor)
 	ON DELETE NO ACTION ON UPDATE CASCADE
 );
@@ -52,9 +52,9 @@ CREATE TABLE contato (
   email VARCHAR(60) NOT NULL,
   telefoneComplementar VARCHAR(11) NULL,
   idConta INT UNSIGNED NOT NULL,
-  CONSTRAINT idConta 
+  CONSTRAINT IdContaContato 
   FOREIGN KEY (idConta) REFERENCES conta (idConta)
-	ON DELETE NO ACTION ON UPDATE CASCADE
+	ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 
 
@@ -69,7 +69,7 @@ CREATE TABLE endereco (
   estado VARCHAR(20) NOT NULL,
   pais VARCHAR(20) NOT NULL,
   idConta INT UNSIGNED NULL,
-  CONSTRAINT idConta 
+  CONSTRAINT idContaEndereco
   FOREIGN KEY (idConta) REFERENCES conta (idConta)
 	ON DELETE NO ACTION ON UPDATE CASCADE
 );
@@ -82,7 +82,7 @@ CREATE TABLE loja (
   descricao TEXT NOT NULL,
   imagem VARCHAR(80) NOT NULL,
   idConta INT UNSIGNED NULL,
-  CONSTRAINT idConta 
+  CONSTRAINT idContaLoja 
   FOREIGN KEY (idConta) REFERENCES conta (idConta) 
     ON DELETE NO ACTION ON UPDATE CASCADE
 );
@@ -106,7 +106,7 @@ CREATE TABLE produto (
   CONSTRAINT idCategoriaProduto
     FOREIGN KEY (idCategoriaProduto) REFERENCES categoriaProduto (idCategoriaProduto)
     ON DELETE NO ACTION ON UPDATE CASCADE,
-  CONSTRAINT idLoja
+  CONSTRAINT idLojaProduto
     FOREIGN KEY (idLoja) REFERENCES loja (idLoja)
     ON DELETE NO ACTION ON UPDATE CASCADE
 );
@@ -141,7 +141,7 @@ CREATE TABLE carrinho (
   CONSTRAINT idProduto
     FOREIGN KEY (idProduto) REFERENCES produto (idProduto)
     ON DELETE NO ACTION ON UPDATE CASCADE,
-  CONSTRAINT idPedido
+  CONSTRAINT idPedidoCarrinho
     FOREIGN KEY (idPedido) REFERENCES pedido (idPedido)
     ON DELETE NO ACTION ON UPDATE CASCADE
 );
