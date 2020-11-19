@@ -19,8 +19,8 @@ public class ActionFactory {
         String pacote = action.substring(index);
 
         char c[] = pacote.toCharArray();
-        c[0] += 32;  // Se for somado 32 em um código ASCII, o correspondente é a letra minuscula da mesma
-        // Exceto caracteres especiais.
+        c[0] += 32;  
+        
         pacote = new String(c);
 
         String nomeClasse = "action." + pacote + "." + action + "Action";

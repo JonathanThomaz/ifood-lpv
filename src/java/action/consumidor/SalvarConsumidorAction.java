@@ -50,10 +50,9 @@ public class SalvarConsumidorAction implements Action {
             TipoContaConsumidor tipoConta = new TipoContaConsumidor();
             
             Conta conta = new Conta();
-            conta.setLogin(login);
-            conta.setSenha(senha);
-            conta.setTipoConta(tipoConta);
+            conta.setLogin(login).setSenha(senha).setTipoConta("Consumidor");
             conta = ContaDAO.getInstance().save(conta);
+        
             
             Contato contato = new Contato();
             contato.setTelefone(telefone);

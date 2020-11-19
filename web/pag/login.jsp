@@ -19,7 +19,6 @@
         <tr>
           <td>Senha</td>
           <td><input type="text" name="txtSenha" /></td>
-        </tr>
         <tr>
           <td><input type="submit" value="Logar" /></td>
         </tr>

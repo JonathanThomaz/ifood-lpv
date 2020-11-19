@@ -48,7 +48,7 @@ public class ContatoDAO {
     }
 
     
-    public Contato get(String login) throws ClassNotFoundException, SQLException {
+    public Contato get(String id) throws ClassNotFoundException, SQLException {
         Contato contato = null;
         Connection conn = null;
         Statement st = null;
@@ -56,24 +56,15 @@ public class ContatoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM conta WHERE login = '" + login + "'");
+            ResultSet rs = st.executeQuery("SELECT * FROM contato WHERE idConta = '" + id + "'");
             rs.first();
 
-            
-            
             contato = new Contato();
-            contato.setId(rs.getLong("contato.telefone"));
-            contato.setId(rs.getLong("contato.id"));
-            contato.setDdd("contato.ddd");
-            contato.setId(rs.getLong("contato.email"));
-            contato.setId(rs.getLong("contato.telefoneComplementar"));
-                        
-            Conta conta = new Conta();
-            conta.setId(rs.getLong("conta.id"));
-            conta.setLogin(rs.getString("conta.login"));
-            conta.setSenha(rs.getString("conta.senha"));
-            conta.setIdTipoConta(rs.getLong("conta.idTipoConta"));
-
+            contato.setTelefone(rs.getString("contato.telefone"));
+            contato.setId(rs.getLong("contato.idContato"));
+            contato.setDdd(rs.getString("contato.ddd"));
+            contato.setEmail(rs.getString("contato.email"));
+            contato.setTelefoneComplementar(rs.getString("contato.telefoneComplementar"));
             
         } catch (SQLException e) {
             throw e;

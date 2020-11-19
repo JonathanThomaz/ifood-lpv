@@ -44,14 +44,9 @@ public class LojaDAO {
                     + "WHERE loja.id =" + id + "");
             rs.first();
 
-            TipoContaLoja tipoConta = new TipoContaLoja();
-
             Conta conta = new Conta();
-            conta.setId(rs.getLong("conta.id"));
-            conta.setLogin(rs.getString("conta.login"));
-            conta.setSenha(rs.getString("conta.senha"));
-            conta.setTipoConta(tipoConta);
-
+            conta.setId(rs.getLong("conta.id")).setLogin(rs.getString("conta.login")).setSenha(rs.getString("conta.senha")).setTipoConta(rs.getString("tipoConta.tipo"));
+            
             Contato contato = new Contato();
             contato.setId((rs.getLong("contato.id")));
             contato.setTelefone(rs.getString("contato.telefone"));
@@ -108,14 +103,9 @@ public class LojaDAO {
             ResultSet rs = st.executeQuery(query);
             rs.first();
 
-            TipoContaLoja tipoConta = new TipoContaLoja();
-
             Conta conta = new Conta();
-            conta.setId(rs.getLong("conta.id"));
-            conta.setLogin(rs.getString("conta.login"));
-            conta.setSenha(rs.getString("conta.senha"));
-            conta.setTipoConta(tipoConta);
-
+            conta.setId(rs.getLong("conta.id")).setLogin(rs.getString("conta.login")).setSenha(rs.getString("conta.senha")).setTipoConta(rs.getString("tipoConta.tipo"));
+            
             Contato contato = new Contato();
             contato.setId((rs.getLong("contato.id")));
             contato.setTelefone(rs.getString("contato.telefone"));
@@ -170,14 +160,9 @@ public class LojaDAO {
                     + "INNER JOIN categoria ON loja.categoria_id = categoria.id;");
             while (rs.next()) {
 
-                TipoContaLoja tipoConta = new TipoContaLoja();
-
                 Conta conta = new Conta();
-                conta.setId(rs.getLong("conta.id"));
-                conta.setLogin(rs.getString("conta.login"));
-                conta.setSenha(rs.getString("conta.senha"));
-                conta.setTipoConta(tipoConta);
-
+                conta.setId(rs.getLong("conta.id")).setLogin(rs.getString("conta.login")).setSenha(rs.getString("conta.senha")).setTipoConta(rs.getString("tipoConta.tipo"));
+            
                 Contato contato = new Contato();
                 contato.setId((rs.getLong("contato.id")));
                 contato.setTelefone(rs.getString("contato.telefone"));

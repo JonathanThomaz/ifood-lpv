@@ -47,11 +47,9 @@ public class ConsumidorDAO {
             TipoContaConsumidor tipoConta = new TipoContaConsumidor();
                         
             Conta conta = new Conta();
-            conta.setId(rs.getLong("conta.id"));
-            conta.setLogin(rs.getString("conta.login"));
-            conta.setSenha(rs.getString("conta.senha"));
-            conta.setTipoConta(tipoConta);
-
+            conta.setId(rs.getLong("conta.id")).setLogin(rs.getString("conta.login")).setSenha(rs.getString("conta.senha")).setTipoConta(rs.getString("tipoConta.tipo"));
+            
+            
             Contato contato = new Contato();
             contato.setId((rs.getLong("contato.id")));
             contato.setTelefone(rs.getString("contato.telefone"));
@@ -169,11 +167,9 @@ public class ConsumidorDAO {
             contato.setDdd(rs.getString("contato.ddd"));
             contato.setEmail((rs.getString("contato.email")));
             contato.setTelefoneComplementar(rs.getString("contato.telefoneComplementar"));
+            
             Conta conta = new Conta();
-            conta.setId(rs.getLong("conta.id"));
-            conta.setLogin(rs.getString("conta.login"));
-            conta.setSenha(rs.getString("conta.senha"));
-            conta.setTipoConta(tipoConta);
+            conta.setId(rs.getLong("conta.id")).setLogin(rs.getString("conta.login")).setSenha(rs.getString("conta.senha")).setTipoConta(rs.getString("tipoConta.tipo"));
             
             consumidor = new Consumidor();
             
