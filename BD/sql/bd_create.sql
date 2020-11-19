@@ -99,6 +99,7 @@ CREATE TABLE produto (
   preco DECIMAL(2) NOT NULL,
   nome VARCHAR(60) NOT NULL,
   disponivel TINYINT NOT NULL,
+  valor_desconto DECIMAL(2) NULL DEFAULT 0,
   descricao VARCHAR(150) NOT NULL,
   imagem VARCHAR(60) NOT NULL,
   idCategoriaProduto INT UNSIGNED NULL,
@@ -112,24 +113,12 @@ CREATE TABLE produto (
 );
 
 
-CREATE TABLE estadoPedido (
-  idEstadoPedido INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  estado VARCHAR(25) NOT NULL,
-  mensagem VARCHAR(50) NOT NULL
-);
-
-
 CREATE TABLE pedido (
   idPedido INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   valorProdutos DECIMAL(2) NOT NULL,
   valorFrete DECIMAL(2) NOT NULL,
   valorTotal DECIMAL(2) NOT NULL,
-  estadoPagamento TINYINT NOT NULL,
-  sePediuEntrega TINYINT NOT NULL,
-  idEstadoPedido INT UNSIGNED NOT NULL,
-  CONSTRAINT idEstadoPedido
-    FOREIGN KEY (idEstadoPedido) REFERENCES estadoPedido (idEstadoPedido)
-    ON DELETE NO ACTION ON UPDATE CASCADE
+  estadoPedido VARCHAR(50) NOT NULL DEFAULT 'Aguardando aprovacao'
 );
 
 
