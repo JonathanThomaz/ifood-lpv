@@ -14,8 +14,6 @@ public abstract class TipoConta {
     public TipoConta() {
     }
     
-    
-    
     public long getId(){
         return this.id;
     }

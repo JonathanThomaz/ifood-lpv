@@ -18,56 +18,64 @@ public class Contato {
         return id;
     }
 
-    public void setId(long id) {
+    public Contato setId(long id) {
         this.id = id;
+        return this;
+
     }
 
     public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(String telefone) {
+    public Contato setTelefone(String telefone) {
         this.telefone = telefone;
+        return this;
     }
 
     public String getDdd() {
         return ddd;
     }
 
-    public void setDdd(String ddd) {
+    public Contato setDdd(String ddd) {
         this.ddd = ddd;
+        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public Contato setEmail(String email) {
         this.email = email;
+        return this;
     }
 
     public String getTelefoneComplementar() {
         return telefoneComplementar;
     }
 
-    public void setTelefoneComplementar(String telefoneComplementar) {
+    public Contato setTelefoneComplementar(String telefoneComplementar) {
         this.telefoneComplementar = telefoneComplementar;
+        return this;
     }
 
     public Conta getConta() {
         return conta;
     }
 
-    public void setConta(Conta conta) {
+    public Contato setConta(Conta conta) {
         this.conta = conta;
+        this.setIdConta(conta.getId());
+        return this;
+        
     }
 
     public long getIdConta() {
         return conta.getId();
     }
-
-    public void setIdConta(Conta conta) {
-        this.idConta = conta.getId();
+    private void setIdConta(long idConta) {
+        this.idConta = idConta;
     }
-    
+  
 }
