@@ -29,15 +29,10 @@ public class EnderecoDAO {
             ResultSet rs = st.executeQuery("SELECT * FROM endereco WHERE id =" + id + "");
             rs.first();
             endereco = new Endereco();
-            endereco.setId(rs.getInt("id"));
-            endereco.setCep(rs.getString("cep"));
-            endereco.setRua(rs.getString("rua"));
-            endereco.setNumero(rs.getString("numero"));
-            endereco.setComplemento(rs.getString("complemento"));
-            endereco.setBairro(rs.getString("bairro"));
-            endereco.setCidade(rs.getString("cidade"));
-            endereco.setEstado(rs.getString("estado"));
-            endereco.setPais(rs.getString("pais"));
+            endereco.setId(rs.getInt("id")).setCep(rs.getString("cep")).setRua(rs.getString("rua"))
+                    .setNumero(rs.getString("numero")).setComplemento(rs.getString("complemento"))
+                    .setBairro(rs.getString("bairro")).setCidade(rs.getString("cidade"))
+                    .setEstado(rs.getString("estado")).setPais(rs.getString("pais"));
         } catch (SQLException e) {
             throw e;
         } finally {
