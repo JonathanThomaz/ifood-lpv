@@ -9,7 +9,7 @@ public class Teste {
         Conta c = new Conta();
         c.setTipoConta("Loja");
         System.out.println(c.getIdTipo());        
-        System.out.println(c.getTipo());
+        System.out.println(c.getTipoConta());
 
     }
 }

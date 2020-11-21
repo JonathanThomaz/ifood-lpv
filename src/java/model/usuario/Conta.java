@@ -47,7 +47,7 @@ public class Conta {
 
     }
 
-    public TipoConta getTipo() {
+    public TipoConta getTipoConta() {
         return tipo;
     }
 

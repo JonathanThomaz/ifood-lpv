@@ -13,11 +13,11 @@ public class LogarContaConsumidor implements LogarConta {
 
     @Override
     public void logar(HttpServletRequest request, HttpServletResponse response, Conta conta) {
-        Consumidor consumidor = ConsumidorDAO.getInstance().getByConta(conta.getId());
+        Consumidor consumidor = ConsumidorDAO.getInstance().get(conta.getId());
         HttpSession session = request.getSession();
         
         try {
-            session.setAttribute("id", consumidor.getId());
+            session.setAttribute("idConsumidor", consumidor.getId());
             session.setAttribute("tipo", conta.getTipoConta());
             session.setAttribute("login", conta.getLogin());
             request.getRequestDispatcher("home.jsp").forward(request, response);
