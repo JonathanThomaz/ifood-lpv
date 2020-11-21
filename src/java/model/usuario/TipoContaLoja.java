@@ -9,6 +9,6 @@ public class TipoContaLoja  extends TipoConta {
     }
     @Override
     public String getDescricaoConta() {
-        return "Loja";
+        return "Conta para usuários lojistas";
     }
 }

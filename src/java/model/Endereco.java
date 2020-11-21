@@ -18,6 +18,7 @@ public class Endereco {
     private long idConta;
     private Conta conta;
 
+    
     public Endereco() {
     }
 

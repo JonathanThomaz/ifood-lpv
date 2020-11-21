@@ -14,6 +14,10 @@ public class Contato {
     private long idConta;
     private Conta conta;
 
+    public Contato() {
+    }
+
+    
     public long getId() {
         return id;
     }

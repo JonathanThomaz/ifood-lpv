@@ -7,7 +7,7 @@ public abstract class TipoConta {
     
     long id;
     String tipo;
-    ArrayList listaPermissao = new ArrayList();
+    
     
     public abstract String getDescricaoConta();
 

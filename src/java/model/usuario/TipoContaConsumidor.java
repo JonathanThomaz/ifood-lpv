@@ -10,6 +10,6 @@ public class TipoContaConsumidor extends TipoConta {
     
     @Override
     public String getDescricaoConta() {
-        return "Consumidor";
+        return "Conta para usuários consumidores";
     }
 }

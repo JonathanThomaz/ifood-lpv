@@ -14,6 +14,10 @@ public class Loja {
     private long idConta;
     private Conta conta;
 
+    public Loja() {
+    }
+
+    
     public long getId() {
         return id;
     }

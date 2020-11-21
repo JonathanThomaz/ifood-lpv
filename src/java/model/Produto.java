@@ -18,6 +18,11 @@ public class Produto {
     private Categoria categoria;
     private Loja loja;
 
+    
+    
+    public Produto() {
+    }
+   
     public long getId() {
         return id;
     }

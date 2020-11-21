@@ -10,6 +10,7 @@ public class Cartao {
     private boolean aprovado;
     private boolean ativo;
 
+    
     Consumidor consumidor;
     public long getId() {
         return id;

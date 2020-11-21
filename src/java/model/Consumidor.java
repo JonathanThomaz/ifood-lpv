@@ -15,8 +15,7 @@ public class Consumidor {
 
     public Consumidor() {
     }
-
-        
+  
     public long getId() {
         return id;
     }

@@ -9,5 +9,4 @@ public class PedidoEstadoCancelado extends PedidoEstado {
         this.nome = "cancelado";
 
     }
-    
 }
