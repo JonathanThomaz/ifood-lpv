@@ -10,67 +10,70 @@ public class Loja {
     private String cnpj;
     private String descricao;
     private String imagem;
-
+    
     private long idConta;
     private Conta conta;
 
     public Loja() {
     }
 
+    
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public Loja setId(long id) {
         this.id = id;
+        return this;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public Loja setNome(String nome) {
         this.nome = nome;
+        return this;
     }
 
     public String getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(String cnpj) {
+    public Loja setCnpj(String cnpj) {
         this.cnpj = cnpj;
+        return this;
     }
 
     public String getDescricao() {
         return descricao;
     }
 
-    public void setDescricao(String descricao) {
+    public Loja setDescricao(String descricao) {
         this.descricao = descricao;
+        return this;
     }
 
     public String getImagem() {
         return imagem;
     }
 
-    public void setImagem(String imagem) {
+    public Loja setImagem(String imagem) {
         this.imagem = imagem;
-    }
-
-    public Conta getConta() {
-        return conta;
-    }
-
-    public void setConta(Conta conta) {
-        this.conta = conta;
+        return this;
     }
 
     public long getIdConta() {
-        return idConta;
+        return conta.getId();
     }
 
-    public void setIdConta(long idConta) {
+    private void setIdConta(long idConta) {
         this.idConta = idConta;
     }
 
+    public Loja setConta(Conta conta) {
+        this.conta = conta;
+        this.setIdConta(conta.getId());
+        return this;
+    }
 }

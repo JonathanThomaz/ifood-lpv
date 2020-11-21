@@ -15,52 +15,67 @@ public class Pedido {
     private Loja loja;
     private Consumidor consumidor;
 
-    public long getId() {
-        return id;
+    public Pedido(){
+    
+    }
+    
+    public Pedido setId(long id) {
+        this.id = id;
+        return this;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public Pedido setValor(String valor) {
+        this.valor = valor;
+        return this;
+    }
+
+    public Pedido setEstado(PedidoEstado estado) {
+        this.estado = estado;
+        return this;
+    }
+
+    public Pedido setCarrinho(ArrayList<Carrinho> carrinho) {
+        this.carrinho = carrinho;
+        return this;
+    }
+
+    public Pedido setLoja(Loja loja) {
+        this.loja = loja;
+        return this;
+    }
+
+    public Pedido setConsumidor(Consumidor consumidor) {
+        this.consumidor = consumidor;
+        return this;
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getValor() {
         return valor;
     }
 
-    public void setValor(String valor) {
-        this.valor = valor;
-    }
-
     public PedidoEstado getEstado() {
         return estado;
-    }
-
-    public void setEstado(PedidoEstado estado) {
-        this.estado = estado;
     }
 
     public ArrayList<Carrinho> getCarrinho() {
         return carrinho;
     }
 
-    public void setCarrinho(ArrayList<Carrinho> carrinho) {
-        this.carrinho = carrinho;
-    }
-
     public Loja getLoja() {
         return loja;
-    }
-
-    public void setLoja(Loja loja) {
-        this.loja = loja;
     }
 
     public Consumidor getConsumidor() {
         return consumidor;
     }
-
-    public void setConsumidor(Consumidor consumidor) {
-        this.consumidor = consumidor;
+    
+    public Pedido addItem(Carrinho item){
+        this.carrinho.add(item);
+        return this;
     }
 
 }

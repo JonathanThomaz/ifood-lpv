@@ -56,13 +56,13 @@ public class ContaDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT conta.*,  tipoConta.* FROM conta "
-                    + "INNER JOIN tipoConta ON  conta.idTipoConta = tipoConta.idTipoConta "
-                    + "WHERE conta.login = '"+login+"'");
+            ResultSet rs = st.executeQuery("SELECT * FROM conta WHERE login = '" + login + "'");
             rs.first();
 
             conta = new Conta();
-            conta.setId(rs.getLong("conta.idConta")).setLogin(rs.getString("conta.login")).setSenha(rs.getString("conta.senha")).setIdTipo(rs.getLong("tipoConta.idTipoConta"));
+            conta.setId(rs.getLong("conta.idConta")).setLogin(rs.getString("conta.login"))
+                    .setSenha(rs.getString("conta.senha")).setTipoConta(rs.getString("tipoConta.tipo"));
+           
         } catch (SQLException e) {
             throw e;
         } finally {
@@ -72,52 +72,6 @@ public class ContaDAO {
         return conta;
 
     }
-    
-   
-
-    public Conta getById(long id) throws ClassNotFoundException, SQLException {
-        Conta conta = null;
-        Connection conn = null;
-        Statement st = null;
-
-        try {
-            conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT conta.*,  tipoConta.* FROM conta "
-                    + "INNER JOIN tipoConta ON  conta.idTipoConta = tipoConta.idTipoConta "
-                    + "WHERE conta.login = '"+id+"'");
-            rs.first();
-            conta = new Conta();
-            conta.setId(rs.getLong("conta.idConta")).setLogin(rs.getString("conta.login")).setSenha(rs.getString("conta.senha")).setTipoConta(rs.getString("tipoConta.tipo"));
-        } catch (SQLException e) {
-            throw e;
-        } finally {
-            closeResources(conn, st);
-        }
-
-        return conta;
-
-    }
-    public void update(Conta conta) throws ClassNotFoundException, SQLException {
-
-        Connection conn = null;
-        Statement st = null;
-
-        try {
-            conn = DatabaseLocator.getInstance().getConnection();
-            st = conn.createStatement();
-            st.execute("UPDATE conta "
-                    + "SET login = '" + conta.getLogin() + "', "
-                    + "senha = '" + conta.getSenha() + "' "
-                    + "WHERE id = " + conta.getId() + ";");
-
-        } catch (SQLException e) {
-            throw e;
-        } finally {
-            closeResources(conn, st);
-        }
-    }
-
     
     private void closeResources(Connection conn, Statement st) {
         try {
@@ -131,30 +85,4 @@ public class ContaDAO {
             System.out.println(e);
         }
     }
-
-//    public static Conta getByLogin(String login) throws ClassNotFoundException, SQLException {
-//        Conta conta = null;
-//        Connection conn = null;
-//        Statement st = null;
-//
-//        try {
-//            conn = DatabaseLocator.getInstance().getConnection();
-//            st = conn.createStatement();
-//            ResultSet rs = st.executeQuery("SELECT conta.*,  tipoConta.* FROM conta "
-//                    + "INNER JOIN tipoConta ON tipoConta.idTipoConta = conta.idTipoConta "
-//                    + "WHERE login = '"+login+"'");
-//            rs.first();
-//            
-//            conta = new Conta();
-//            conta.setId(rs.getLong("conta.idConta")).setLogin(rs.getString("conta.login")).setSenha(rs.getString("conta.senha")).setTipo(rs.getString("tipoConta.tipo"));
-//        
-//        } catch (SQLException e) {
-//            throw e;
-//        } finally {
-//        }
-//
-//        return conta;
-//
-//    }
-    
 }

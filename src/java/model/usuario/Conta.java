@@ -11,8 +11,10 @@ public class Conta {
     private String senha;
     private long idTipo;
 
-    private TipoConta tipoConta;
+    private TipoConta tipo;
 
+    
+    
     public Conta() {
 
     }
@@ -25,7 +27,6 @@ public class Conta {
         this.id = id;
         return this;
     }
-
 
     public String getLogin() {
         return login;
@@ -43,14 +44,18 @@ public class Conta {
     public Conta setSenha(String senha) {
         this.senha = senha;
         return this;
+
     }
 
-    
+    public TipoConta getTipo() {
+        return tipo;
+    }
+
     public Conta setTipoConta(String tipo) {
         try {
-            Class c = Class.forName("model.conta.TipoConta"+tipo);
-            this.tipoConta = (TipoConta) c.newInstance();
-
+            Class c = Class.forName("model.usuario.TipoConta" + tipo);
+            this.tipo = (TipoConta) c.newInstance();
+            this.setIdTipo(this.tipo.getId());
         } catch (IllegalAccessException | ClassNotFoundException | IllegalArgumentException | SecurityException ex) {
             System.out.println(ex);
         } catch (InstantiationException ex) {
@@ -58,27 +63,13 @@ public class Conta {
         }
         return this;
     }
-    
+
     public long getIdTipo() {
         return idTipo;
     }
 
-    public String getTipoConta() {
-        return this.tipoConta.getTipo();
-    }
-
     public void setIdTipo(long idTipo) {
         this.idTipo = idTipo;
-        if (idTipo == 1) {
-            TipoContaLoja tipoConta = new TipoContaLoja();
-            this.setTipoConta(tipoConta.tipo);
-        } else {
-            TipoContaConsumidor tipoConta = new TipoContaConsumidor();
-            this.setTipoConta(tipoConta.tipo);
-        }
-
     }
-
-
 
 }
