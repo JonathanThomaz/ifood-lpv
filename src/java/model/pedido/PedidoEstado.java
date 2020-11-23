@@ -1,46 +1,61 @@
 package model.pedido;
 
 
-public abstract class PedidoEstado {
+public interface PedidoEstado {
     
-    protected String estadoNome;
-    protected String estadoMsg;
-    protected String nome;
-     
+    public String getEstado();
     
-    public boolean aprovar(Pedido pedido){
-        return false;
-    }
+    public void aprovar(Pedido pedido);
     
-    public boolean naoAprovar(Pedido pedido){
-        return false;
-    }
-
-    public boolean aguardar(Pedido pedido){
-        return false;
-    }
+    public void naoAprovar(Pedido pedido);
     
-    public boolean sairParaEntrega(Pedido pedido){
-        return false;
-    }
+    public void aguardar(Pedido pedido);
     
-    public boolean concluir(Pedido pedido){
-        return false;
-    }
+    public void sairParaEntrega(Pedido pedido);
     
-    public boolean cancelar(Pedido pedido){
-        return false;
-    }
-   
-    public String getEstadoNome() {
-        return estadoNome;
-    }
-
-    public String getEstadoMsg() {
-        return estadoMsg;
-    }
+    public void concluir(Pedido pedido);
     
-    public String getNome(){
-        return nome;
-    }
+    public void cancelar(Pedido pedido);
+    
+    
+//    protected String estadoNome;
+//    protected String estadoMsg;
+//    protected String nome;
+//     
+//    
+//    public boolean aprovar(Pedido pedido){
+//        return false;
+//    }
+//    
+//    public boolean naoAprovar(Pedido pedido){
+//        return false;
+//    }
+//
+//    public boolean aguardar(Pedido pedido){
+//        return false;
+//    }
+//    
+//    public boolean sairParaEntrega(Pedido pedido){
+//        return false;
+//    }
+//    
+//    public boolean concluir(Pedido pedido){
+//        return false;
+//    }
+//    
+//    public boolean cancelar(Pedido pedido){
+//        return false;
+//    }
+//   
+//    public String getEstadoNome() {
+//        return estadoNome;
+//    }
+//
+//    public String getEstadoMsg() {
+//        return estadoMsg;
+//    }
+//    
+//    public String getNome(){
+//        return nome;
+//    }
 }
