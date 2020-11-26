@@ -60,10 +60,9 @@ public class ContaDAO {
             rs.first();
 
             conta = new Conta();
-            conta.setId(rs.getLong("conta.id"));
-            conta.setLogin(rs.getString("conta.login"));
-            conta.setSenha(rs.getString("conta.senha"));
-            conta.setIdTipo(rs.getLong("conta.tipo"));
+            conta.setId(rs.getLong("conta.idConta")).setLogin(rs.getString("conta.login"))
+                    .setSenha(rs.getString("conta.senha")).setTipoConta(rs.getString("tipoConta.tipo"));
+           
         } catch (SQLException e) {
             throw e;
         } finally {

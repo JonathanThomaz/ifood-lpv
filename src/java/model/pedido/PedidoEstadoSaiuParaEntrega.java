@@ -1,5 +1,7 @@
 package model.pedido;
 
+import model.MainFactory;
+
 
 public class PedidoEstadoSaiuParaEntrega implements PedidoEstado {
 
@@ -40,5 +42,17 @@ public class PedidoEstadoSaiuParaEntrega implements PedidoEstado {
     public void cancelar(Pedido pedido) {
         
     }
-     
+
+  @Override
+    public boolean cancelar(Pedido pedido){
+        pedido.setEstado((PedidoEstado) MainFactory.getObject(PedidoEstado.class.getName() + "Cancelado"));
+        return true;
+    }
+    
+    @Override
+    public boolean concluir(Pedido pedido){
+        pedido.setEstado((PedidoEstado) MainFactory.getObject(PedidoEstado.class.getName() + "Concluido"));
+        return true;
+    }
+
 }

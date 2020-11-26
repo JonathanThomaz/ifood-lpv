@@ -15,6 +15,7 @@ import model.Consumidor;
 import model.Contato;
 import model.Endereco;
 import model.usuario.Conta;
+import model.usuario.TipoContaConsumidor;
 import persistence.ConsumidorDAO;
 import persistence.ContaDAO;
 import persistence.ContatoDAO;
@@ -46,37 +47,25 @@ public class SalvarConsumidorAction implements Action {
         String pais = request.getParameter("txtPais");
 
         try {
+            TipoContaConsumidor tipoConta = new TipoContaConsumidor();
+            
             Conta conta = new Conta();
-            conta.setLogin(login);
-            conta.setSenha(senha);
-            conta.setIdTipo(2);
+            conta.setLogin(login).setSenha(senha).setTipoConta("Consumidor");
             conta = ContaDAO.getInstance().save(conta);
+        
             
             Contato contato = new Contato();
-            contato.setTelefone(telefone);
-            contato.setDdd(ddd);
-            contato.setEmail(email);
-            contato.setTelefoneComplementar(telefoneComplementar);
-            contato.setConta(conta);
+            contato.setEmail(email).setTelefone(telefone).setDdd(ddd).setEmail(email)
+                    .setTelefoneComplementar(telefoneComplementar).setConta(conta);
             ContatoDAO.getInstance().save(contato);
             
             Endereco endereco = new Endereco();
-            endereco.setCep(cep);
-            endereco.setRua(rua);
-            endereco.setNumero(numero);
-            endereco.setComplemento(complemento);
-            endereco.setBairro(bairro);
-            endereco.setCidade(cidade);
-            endereco.setEstado(estado);
-            endereco.setPais(pais);
-            endereco.setConta(conta);
+            endereco.setBairro(bairro).setRua(rua).setCep(cep).setNumero(numero)
+                    .setComplemento(complemento).setCidade(cidade).setEstado(estado).setPais(pais).setConta(conta);
             EnderecoDAO.getInstance().save(endereco);
             
             Consumidor consumidor = new Consumidor();
-            consumidor.setNome(nome);
-            consumidor.setCpf(cpf);
-            consumidor.setNascimento(dataNascimento);
-            consumidor.setConta(conta);
+            consumidor = consumidor.setNome(nome).setCpf(cpf).setNascimento(dataNascimento).setConta(conta);
             ConsumidorDAO.getInstance().save(consumidor);
 
             

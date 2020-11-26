@@ -1,5 +1,7 @@
 package model.pedido;
 
+import model.MainFactory;
+
 
 public class PedidoEstadoNaoAprovado implements PedidoEstado {
 
@@ -35,10 +37,11 @@ public class PedidoEstadoNaoAprovado implements PedidoEstado {
     public void concluir(Pedido pedido) {
         
     }
-
+ 
     @Override
-    public void cancelar(Pedido pedido) {
-        
+    public boolean cancelar(Pedido pedido){
+        pedido.setEstado((PedidoEstado) MainFactory.getObject(PedidoEstado.class.getName() + "Cancelado"));
+        return true;
     }
-     
+
 }

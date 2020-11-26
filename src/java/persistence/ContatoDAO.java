@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import model.Contato;
+import model.usuario.Conta;
 
 
 public class ContatoDAO {
@@ -47,6 +47,35 @@ public class ContatoDAO {
 
     }
 
+    
+    public Contato get(String id) throws ClassNotFoundException, SQLException {
+        Contato contato = null;
+        Connection conn = null;
+        Statement st = null;
+
+        try {
+            conn = DatabaseLocator.getInstance().getConnection();
+            st = conn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM contato WHERE idConta = '" + id + "'");
+            rs.first();
+
+            contato = new Contato();
+            contato.setTelefone(rs.getString("contato.telefone"));
+            contato.setId(rs.getLong("contato.idContato"));
+            contato.setDdd(rs.getString("contato.ddd"));
+            contato.setEmail(rs.getString("contato.email"));
+            contato.setTelefoneComplementar(rs.getString("contato.telefoneComplementar"));
+            
+        } catch (SQLException e) {
+            throw e;
+        } finally {
+            closeResources(conn, st);
+        }
+
+        return contato;
+
+    }
+    
     private void closeResources(Connection conn, Statement st) {
         try {
             if (st != null) {

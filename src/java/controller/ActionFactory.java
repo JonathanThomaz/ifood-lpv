@@ -4,8 +4,8 @@ import controller.Action;
 
 public class ActionFactory {
 
-   public static Action create(String action) {
-Action actionObject = null;
+    public static Action create(String action) {
+        Action actionObject = null;
 
         int index = 0;
         String actionUpper = action.toUpperCase();
@@ -17,10 +17,10 @@ Action actionObject = null;
         }
 
         String pacote = action.substring(index);
-        
+
         char c[] = pacote.toCharArray();
-        c[0] += 32;  // Se for somado 32 em um código ASCII, o correspondente é a letra minuscula da mesma
-                     // Exceto caracteres especiais.
+        c[0] += 32;  
+        
         pacote = new String(c);
 
         String nomeClasse = "action." + pacote + "." + action + "Action";

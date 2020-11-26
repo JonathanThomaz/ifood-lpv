@@ -1,11 +1,26 @@
 package model.pedido;
 
+import model.MainFactory;
+
 
 public class PedidoEstadoAprovado implements PedidoEstado {
 
     public PedidoEstadoAprovado() {
     }
 
+   
+    @Override
+    public boolean sairParaEntrega(Pedido pedido){
+        return false;
+    
+    }
+    
+    @Override
+    public boolean cancelar(Pedido pedido){
+        pedido.setEstado((PedidoEstado) MainFactory.getObject(PedidoEstado.class.getName() + "Cancelado"));
+        return true;
+    }
+   
     @Override
     public String getEstado() {
         return null;
@@ -26,19 +41,11 @@ public class PedidoEstadoAprovado implements PedidoEstado {
         
     }
 
-    @Override
-    public void sairParaEntrega(Pedido pedido) {
-        
-    }
-
+ 
     @Override
     public void concluir(Pedido pedido) {
         
     }
 
-    @Override
-    public void cancelar(Pedido pedido) {
-        
-    }
-     
+
 }

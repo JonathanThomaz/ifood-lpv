@@ -11,5 +11,8 @@
         <a href="cadastroUsuarioConsumidor.jsp">
             <h3>Cadastro de usuario.</h3>
         </a>
+        <a href="./pag/login.jsp">
+            <h3>Login</h3>
+        </a>
     </body>
 </html>

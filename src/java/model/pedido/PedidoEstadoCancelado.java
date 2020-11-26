@@ -40,5 +40,4 @@ public class PedidoEstadoCancelado implements PedidoEstado {
     public void cancelar(Pedido pedido) {
         
     }
-     
 }

@@ -15,45 +15,51 @@ public class Consumidor {
 
     public Consumidor() {
     }
-
-        
+  
     public long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public Consumidor setId(long id) {
         this.id = id;
+        return this;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public Consumidor setNome(String nome) {
         this.nome = nome;
+        return this;
+
     }
 
     public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
+    public Consumidor setCpf(String cpf) {
         this.cpf = cpf;
+        return this;
+
     }
 
     public String getNascimento() {
         return nascimento;
     }
 
-    public void setNascimento(String nascimento) {
+    public Consumidor setNascimento(String nascimento) {
         this.nascimento = nascimento;
+        return this;
+
     }
 
     public long getIdConta() {
         return conta.getId();
     }
 
-    public void setIdConta(long idConta) {
+    private void setIdConta(long idConta) {
         this.idConta = idConta;
     }
 
@@ -61,10 +67,10 @@ public class Consumidor {
         return conta;
     }
 
-    public void setConta(Conta conta) {
+    public Consumidor setConta(Conta conta) {
         this.conta = conta;
+        this.setIdConta(conta.getId());
+        return this;
     }
-  
-    
     
 }
