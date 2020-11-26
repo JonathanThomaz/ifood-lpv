@@ -3,13 +3,11 @@ package model.pedido;
 import model.MainFactory;
 
 
-public class PedidoEstadoAguardando extends PedidoEstado {
+public class PedidoEstadoAguardando implements PedidoEstado {
 
     public PedidoEstadoAguardando() {
-        this.estadoNome = "Aguardando";
-        this.estadoMsg = "Aguardando aprovação";
-        this.nome = "aguardando";
     }
+
    
         
     @Override
@@ -24,4 +22,30 @@ public class PedidoEstadoAguardando extends PedidoEstado {
         return true;
     }
    
+
+    @Override
+    public String getEstado() {
+     return null;
+    }
+
+    @Override
+    public void aguardar(Pedido pedido) {
+        
+    }
+
+    @Override
+    public void sairParaEntrega(Pedido pedido) {
+        
+    }
+
+    @Override
+    public void concluir(Pedido pedido) {
+        
+    }
+
+    @Override
+    public void cancelar(Pedido pedido) {
+        
+    }
+
 }

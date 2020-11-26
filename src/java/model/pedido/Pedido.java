@@ -14,6 +14,19 @@ public class Pedido {
 
     private Loja loja;
     private Consumidor consumidor;
+    
+    public Pedido(){
+    }
+    
+    public Pedido(Long id, String valor, PedidoEstado estado,ArrayList<Carrinho> carrinho, Loja loja, Consumidor consumidor ) {
+        this.id = id;
+        this.valor = valor;
+        this.estado = new PedidoEstadoAguardando();
+        this.consumidor = consumidor;
+        this.loja = loja;
+        this.carrinho = carrinho;
+    }
+
 
     public Pedido(){
     
@@ -65,6 +78,7 @@ public class Pedido {
         return carrinho;
     }
 
+
     public Loja getLoja() {
         return loja;
     }
@@ -78,4 +92,8 @@ public class Pedido {
         return this;
     }
 
+    public void setConsumidor(Consumidor consumidor) {
+        this.consumidor = consumidor;
+    }
+    
 }
