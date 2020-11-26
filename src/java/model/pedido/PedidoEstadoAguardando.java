@@ -1,13 +1,44 @@
 package model.pedido;
 
 
-public class PedidoEstadoAguardando extends PedidoEstado {
+public class PedidoEstadoAguardando implements PedidoEstado {
 
     public PedidoEstadoAguardando() {
-        this.estadoNome = "Aguardando";
-        this.estadoMsg = "Aguardando aprovação";
-        this.nome = "aguardando";
     }
-   
-    
+
+    @Override
+    public String getEstado() {
+     return null;
+    }
+
+    @Override
+    public void aprovar(Pedido pedido) {
+        
+    }
+
+    @Override
+    public void naoAprovar(Pedido pedido) {
+        
+    }
+
+    @Override
+    public void aguardar(Pedido pedido) {
+        
+    }
+
+    @Override
+    public void sairParaEntrega(Pedido pedido) {
+        
+    }
+
+    @Override
+    public void concluir(Pedido pedido) {
+        
+    }
+
+    @Override
+    public void cancelar(Pedido pedido) {
+        
+    }
+     
 }
