@@ -1,18 +1,5 @@
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-
-    <body>
-        <div class="row">
-            <div class="col-sm-0 col-md-4 col-lg-4" style="background-image: url('./assets/images/bg-login.jpg');">
-            </div>
-            <div class="col-sm-12 col-md-8 col-lg-8">
-                <div class="container px-5 my-5">
-                    <h3 class="h4 text-center">Cadastro de usuário</h3>
+function MostrarCadastrarUsuario() {
+    let conteudo = `
                     <form action="FrontController?action=SalvarConsumidor" method="post">
                         <h3 class="mb-3 mt-5">Dados</h3>
                         <div class="form-group">
@@ -124,8 +111,31 @@
                             <button type="submit" class="btn btn-lg btn-success">Cadastrar</button>
                         </div>
                     </form>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+    `;
+    document.getElementById("header").innerHTML = `<h3>Cadastrar Consumidor</h3>`;
+    document.getElementById("contend").innerHTML = conteudo;
+}
+
+function MostrarLogin() {
+    let conteudo = `
+       <form action="FrontController?action=LogarConta" method="post">
+            <table>
+              <tr>
+                <td>Login</td>
+                <td><input type="text" name="txtLogin" /></td>
+              </tr>
+              <tr>
+                <td>Senha</td>
+                <td><input type="text" name="txtSenha" /></td>
+              <tr>
+                <td><input type="submit" value="Logar" /></td>
+              </tr>
+            </table>
+        </form>
+    `;
+    document.getElementById("header").innerHTML = `<h3>Login</h3>`;
+    document.getElementById("contend").innerHTML = conteudo;
+}
+function PaginaInicial(){
+    window.location.href = "/ifood-lpv";
+}
