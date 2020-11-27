@@ -34,25 +34,13 @@ public class PedidoEstadoSaiuParaEntrega implements PedidoEstado {
     }
 
     @Override
-    public void concluir(Pedido pedido) {
-        
-    }
-
-    @Override
-    public void cancelar(Pedido pedido) {
-        
-    }
-
-  @Override
-    public boolean cancelar(Pedido pedido){
+    public void cancelar(Pedido pedido){
         pedido.setEstado((PedidoEstado) MainFactory.getObject(PedidoEstado.class.getName() + "Cancelado"));
-        return true;
     }
     
     @Override
-    public boolean concluir(Pedido pedido){
+    public void concluir(Pedido pedido){
         pedido.setEstado((PedidoEstado) MainFactory.getObject(PedidoEstado.class.getName() + "Concluido"));
-        return true;
     }
 
 }

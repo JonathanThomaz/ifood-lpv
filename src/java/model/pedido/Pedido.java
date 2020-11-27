@@ -6,7 +6,7 @@ import model.Consumidor;
 import model.Loja;
 
 public class Pedido {
-    
+
     private long id;
     private String valor;
     private PedidoEstado estado;
@@ -14,11 +14,11 @@ public class Pedido {
 
     private Loja loja;
     private Consumidor consumidor;
-    
-    public Pedido(){
+
+    public Pedido() {
     }
-    
-    public Pedido(Long id, String valor, PedidoEstado estado,ArrayList<Carrinho> carrinho, Loja loja, Consumidor consumidor ) {
+
+    public Pedido(Long id, String valor, PedidoEstado estado, ArrayList<Carrinho> carrinho, Loja loja, Consumidor consumidor) {
         this.id = id;
         this.valor = valor;
         this.estado = new PedidoEstadoAguardando();
@@ -27,11 +27,6 @@ public class Pedido {
         this.carrinho = carrinho;
     }
 
-
-    public Pedido(){
-    
-    }
-    
     public Pedido setId(long id) {
         this.id = id;
         return this;
@@ -78,7 +73,6 @@ public class Pedido {
         return carrinho;
     }
 
-
     public Loja getLoja() {
         return loja;
     }
@@ -86,14 +80,10 @@ public class Pedido {
     public Consumidor getConsumidor() {
         return consumidor;
     }
-    
-    public Pedido addItem(Carrinho item){
+
+    public Pedido addItem(Carrinho item) {
         this.carrinho.add(item);
         return this;
     }
 
-    public void setConsumidor(Consumidor consumidor) {
-        this.consumidor = consumidor;
-    }
-    
 }

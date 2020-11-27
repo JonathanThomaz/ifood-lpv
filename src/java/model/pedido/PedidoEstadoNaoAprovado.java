@@ -39,9 +39,8 @@ public class PedidoEstadoNaoAprovado implements PedidoEstado {
     }
  
     @Override
-    public boolean cancelar(Pedido pedido){
+    public void cancelar(Pedido pedido){
         pedido.setEstado((PedidoEstado) MainFactory.getObject(PedidoEstado.class.getName() + "Cancelado"));
-        return true;
     }
 
 }
