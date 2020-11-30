@@ -45,7 +45,8 @@ public class SalvarConsumidorAction implements Action {
         String cidade = request.getParameter("txtCidade");
         String estado = request.getParameter("txtEstado");
         String pais = request.getParameter("txtPais");
-
+        
+        
         try {
             TipoContaConsumidor tipoConta = new TipoContaConsumidor();
             
@@ -68,7 +69,9 @@ public class SalvarConsumidorAction implements Action {
             consumidor = consumidor.setNome(nome).setCpf(cpf).setNascimento(dataNascimento).setConta(conta);
             ConsumidorDAO.getInstance().save(consumidor);
 
-            
+            System.out.println(conta);
+            System.out.println(contato);
+            System.out.println(consumidor);
             HttpSession sessao = request.getSession();
             sessao.invalidate();
 

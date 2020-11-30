@@ -44,8 +44,8 @@ public class Endereco {
         return rua;
     }
     
-    public Endereco setRua(String cep) {
-        this.cep = cep;
+    public Endereco setRua(String rua) {
+        this.rua = rua;
         return this;
     }
 

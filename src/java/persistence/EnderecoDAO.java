@@ -47,6 +47,7 @@ public class EnderecoDAO {
         Connection conn = null;
         Statement st = null;
         long key = -1;
+        System.out.println(endereco.getRua());
         String  query = ("INSERT INTO endereco (rua, bairro, numero, cep, complemento, cidade, estado, pais, idConta) VALUES "
                     + "('" + endereco.getRua() + "', "
                     + "'" + endereco.getBairro() + "', "

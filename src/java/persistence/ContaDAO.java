@@ -138,13 +138,14 @@ public class ContaDAO {
         Connection conn = null;
         Statement st = null;
         long key = -1l;
+        String query = ("INSERT INTO conta (login, senha, idTipoConta) VALUES "
+                + "('" + conta.getLogin() + "', "
+                + "'" + conta.getSenha() + "', "
+                + "'" + conta.getIdTipo() + "');");
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            st.execute("INSERT INTO conta (login, senha, tipo)" + " "
-                    + "VALUES ('" + conta.getLogin() + "', "
-                    + "'" + conta.getSenha() + "', "
-                    + "'" + conta.getTipoConta() + "');", Statement.RETURN_GENERATED_KEYS);
+            st.execute(query, Statement.RETURN_GENERATED_KEYS);
             ResultSet rs = st.getGeneratedKeys();
             if (rs != null && rs.next()) {
                 key = rs.getLong(1);

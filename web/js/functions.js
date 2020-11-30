@@ -1,14 +1,15 @@
 function MostrarCadastrarUsuario() {
     let conteudo = `
                     <form action="FrontController?action=SalvarConsumidor" method="post">
-                        <h3 class="mb-3 mt-5">Dados</h3>
+                        
+                    <h3 class="mb-3 mt-5">Dados</h3>
                         <div class="form-group">
                             <label for="txtLogin">Login</label>
                             <input type="text" class="form-control" id="txtLogin" name="txtLogin">
                         </div>
                         <div class="form-group">
                             <label for="txtSenha">Senha</label>
-                            <input type="text" class="form-control" id="txtSenha" name="txtSenha">
+                            <input type="password" class="form-control" id="txtSenha" name="txtSenha">
                         </div>
                         <div class="form-group">
                             <label for="txtNome">Nome</label>
@@ -16,13 +17,24 @@ function MostrarCadastrarUsuario() {
                         </div>
                         <div class="form-group">
                             <label for="txtNascimento">Data de nascimento</label>
-                            <input type="text" class="form-control" id="txtNascimento" name="txtNascimento">
+                            <input 
+                            type="date" class="form-control" 
+                            id="txtNascimento" 
+                            name="txtNascimento"
+                            >
                         </div>
                         <div class="form-group">
                             <label for="txtCpf">CPF</label>
-                            <input type="text" class="form-control" id="txtCpf" name="txtCpf">
+                            <input 
+                            type="text"
+                            maxlength=11 
+                            class="form-control" 
+                            id="txtCpf" 
+                            name="txtCpf"
+                            >
                         </div>
-                        <h3 class="mb-3 mt-5">Contato</h3>
+                    
+                    <h3 class="mb-3 mt-5">Contato</h3>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-3">
@@ -49,7 +61,8 @@ function MostrarCadastrarUsuario() {
                             <label for="txtEmail">Email</label>
                             <input type="text" class="form-control" id="txtEmail" name="txtEmail">
                         </div>
-                        <h3 class="mb-3 mt-5">Endereço</h3>
+                    
+                    <h3 class="mb-3 mt-5">Endereço</h3>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -136,6 +149,6 @@ function MostrarLogin() {
     document.getElementById("header").innerHTML = `<h3>Login</h3>`;
     document.getElementById("contend").innerHTML = conteudo;
 }
-function PaginaInicial(){
+function PaginaInicial() {
     window.location.href = "/ifood-lpv";
 }
