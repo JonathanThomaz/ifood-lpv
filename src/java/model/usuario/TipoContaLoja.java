@@ -5,7 +5,7 @@ public class TipoContaLoja  extends TipoConta {
 
     public TipoContaLoja() {
         this.id = 1;
-        this.tipo = "Loha";
+        this.tipo = "Loja";
     }
     @Override
     public String getDescricaoConta() {

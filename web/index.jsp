@@ -8,7 +8,7 @@
         <title>Ifood-LPV</title>
     </head>
     <body>
-        <header>
+        <header class="title-top">
             <h1><a class="paginaInicialLink" href="#" onclick="PaginaInicial()">Ifood-LPV</a></h1>
         </header>
         <section>
@@ -16,6 +16,9 @@
                 <ul>
                     <li><a class="menuItem" href="#" onclick="MostrarCadastrarUsuario()">
                             <h5>Cadastrar Consumidor</h5>
+                        </a></li>
+                        <li><a class="menuItem" href="#" onclick="MostrarCadastrarLoja()">
+                            <h5>Cadastrar Loja</h5>
                         </a></li>
                         <li><a class="menuItem" href="#" onclick="MostrarLogin()">
                             <h5>Login</h5>

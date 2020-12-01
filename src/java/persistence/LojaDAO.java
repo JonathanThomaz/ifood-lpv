@@ -162,7 +162,7 @@ public class LojaDAO {
     public void save(Loja loja) throws SQLException, ClassNotFoundException {
         Connection conn = null;
         Statement st = null;
-        String query = ("INSERT INTO loja (nome, CNPJ, descricao, imagem, idConta) VALUES "
+        String query = ("INSERT INTO loja (nome, cnpj, descricao, imagem, idConta) VALUES "
                 + "('" + loja.getNome() + "', "
                 + "'" + loja.getCnpj() + "', "
                 + "'" + loja.getDescricao() + "', "
@@ -173,7 +173,7 @@ public class LojaDAO {
             st = conn.createStatement();
             st.execute(query, Statement.RETURN_GENERATED_KEYS);
         } catch (SQLException e) {
-            System.out.println(e);;
+            System.out.println(e);
         } finally {
             closeResources(conn, st);
         }
