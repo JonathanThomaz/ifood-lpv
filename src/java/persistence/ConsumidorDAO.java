@@ -39,7 +39,7 @@ public class ConsumidorDAO {
                     + "INNER JOIN contato ON conta.idConta = contato.idConta "
                     + "INNER JOIN endereco ON conta.idConta = endereco.idConta "
                     + "INNER JOIN tipoConta ON conta.idTipoConta = tipoConta.idTipoConta "
-                    + "WHERE consumidor.idConsumidor = " + id + ";");
+                    + "WHERE  conta.idConta = " + id + ";");
             rs.first();
 
             Conta conta = new Conta();
@@ -50,9 +50,9 @@ public class ConsumidorDAO {
             contato.setId((rs.getLong("contato.idContato"))).setTelefone(rs.getString("contato.telefone")).
                     setDdd(rs.getString("contato.ddd")).setEmail((rs.getString("contato.email"))).
                     setTelefoneComplementar(rs.getString("contato.telefoneComplementar")).setConta(conta);
-
+            System.out.println(rs.getLong("endereco.idEndereco"));
             Endereco endereco = new Endereco();
-            endereco.setId(rs.getLong("endereco.id")).setRua(rs.getString("endereco.rua"))
+            endereco.setId(rs.getLong("endereco.idEndereco")).setRua(rs.getString("endereco.rua"))
                     .setBairro(rs.getString("endereco.bairro")).setCep(rs.getString("endereco.cep"))
                     .setNumero(rs.getString("endereco.numero")).setComplemento(rs.getString("endereco.complemento"))
                     .setCidade(rs.getString("endereco.cidade")).setEstado(rs.getString("endereco.estado"))

@@ -39,7 +39,7 @@ public class LojaDAO {
                     + "INNER JOIN contato ON conta.idConta = contato.idConta "
                     + "INNER JOIN endereco ON conta.idConta = endereco.idConta "
                     + "INNER JOIN tipoConta ON conta.idTipoConta = tipoConta.idTipoConta "
-                    + "WHERE loja.idLoja = " + id + ";");
+                    + "WHERE conta.idConta = " + id + ";");
             rs.first();
 
             Conta conta = new Conta();
@@ -52,7 +52,7 @@ public class LojaDAO {
                     setTelefoneComplementar(rs.getString("contato.telefoneComplementar")).setConta(conta);
 
             Endereco endereco = new Endereco();
-            endereco.setId(rs.getLong("endereco.id")).setRua(rs.getString("endereco.rua"))
+            endereco.setId(rs.getLong("endereco.idEndereco")).setRua(rs.getString("endereco.rua"))
                     .setBairro(rs.getString("endereco.bairro")).setCep(rs.getString("endereco.cep"))
                     .setNumero(rs.getString("endereco.numero")).setComplemento(rs.getString("endereco.complemento"))
                     .setCidade(rs.getString("endereco.cidade")).setEstado(rs.getString("endereco.estado"))

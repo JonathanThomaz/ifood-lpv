@@ -12,7 +12,6 @@ import model.Loja;
 import model.usuario.Conta;
 import persistence.LojaDAO;
 
-
 public class LogarContaLoja implements LogarConta {
 
     @Override
@@ -24,7 +23,8 @@ public class LogarContaLoja implements LogarConta {
             session.setAttribute("id", loja.getId());
             session.setAttribute("tipo", conta.getTipoConta());
             session.setAttribute("login", conta.getLogin());
-            request.getRequestDispatcher("estabelecimento/index.jsp").forward(request, response);
+            request.setAttribute("loja",loja);
+            request.getRequestDispatcher("loja/index.jsp").forward(request, response);
 
         } catch (SQLException | ClassNotFoundException | ServletException | IOException ex) {
             System.out.println(ex);
