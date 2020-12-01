@@ -7,7 +7,7 @@ body {
 }
 
 /* Style the header */
-header {
+.title-top {
     background-color: #666;
     padding: 20px;
     text-align: center;
