@@ -5,17 +5,17 @@ public interface PedidoEstado {
     
     public String getEstado();
     
-    public void aprovar(Pedido pedido);
+    public boolean aprovar(Pedido pedido);
     
-    public void naoAprovar(Pedido pedido);
+    public boolean naoAprovar(Pedido pedido);
     
-    public void aguardar(Pedido pedido);
+    public boolean aguardar(Pedido pedido);
     
-    public void sairParaEntrega(Pedido pedido);
+    public boolean sairParaEntrega(Pedido pedido);
     
-    public void concluir(Pedido pedido);
+    public boolean concluir(Pedido pedido);
     
-    public void cancelar(Pedido pedido);
+    public boolean cancelar(Pedido pedido);
     
     
 //    protected String estadoNome;

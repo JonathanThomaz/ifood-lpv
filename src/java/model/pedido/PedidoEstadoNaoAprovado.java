@@ -10,37 +10,38 @@ public class PedidoEstadoNaoAprovado implements PedidoEstado {
 
     @Override
     public String getEstado() {
-        return null;
+        return "Nao Aprovado";
     }
 
     @Override
-    public void aprovar(Pedido pedido) {
-        
+    public boolean aprovar(Pedido pedido) {
+        return false;
     }
 
     @Override
-    public void naoAprovar(Pedido pedido) {
-        
+    public boolean naoAprovar(Pedido pedido) {
+        return false;
     }
 
     @Override
-    public void aguardar(Pedido pedido) {
-        
+    public boolean aguardar(Pedido pedido) {
+        return false;
     }
 
     @Override
-    public void sairParaEntrega(Pedido pedido) {
-        
+    public boolean sairParaEntrega(Pedido pedido) {
+        return false;
     }
 
     @Override
-    public void concluir(Pedido pedido) {
-        
+    public boolean concluir(Pedido pedido) {
+        return false;
     }
  
     @Override
-    public void cancelar(Pedido pedido){
+    public boolean cancelar(Pedido pedido){
         pedido.setEstado((PedidoEstado) MainFactory.getObject(PedidoEstado.class.getName() + "Cancelado"));
+        return true;
     }
 
 }

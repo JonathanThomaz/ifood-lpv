@@ -8,36 +8,36 @@ public class PedidoEstadoCancelado implements PedidoEstado {
 
     @Override
     public String getEstado() {
-        return null;
+        return "Cancelado";
     }
 
     @Override
-    public void aprovar(Pedido pedido) {
-        
+    public boolean aprovar(Pedido pedido) {
+        return false;
     }
 
     @Override
-    public void naoAprovar(Pedido pedido) {
-        
+    public boolean naoAprovar(Pedido pedido) {
+        return false;
     }
 
     @Override
-    public void aguardar(Pedido pedido) {
-        
+    public boolean aguardar(Pedido pedido) {
+        return false;
     }
 
     @Override
-    public void sairParaEntrega(Pedido pedido) {
-        
+    public boolean sairParaEntrega(Pedido pedido) {
+        return false;
     }
 
     @Override
-    public void concluir(Pedido pedido) {
-        
+    public boolean concluir(Pedido pedido) {
+        return false;
     }
 
     @Override
-    public void cancelar(Pedido pedido) {
-        
+    public boolean cancelar(Pedido pedido) {
+        return false;
     }
 }

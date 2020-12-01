@@ -11,39 +11,41 @@ public class PedidoEstadoAguardando implements PedidoEstado {
    
         
     @Override
-    public void aprovar(Pedido pedido){
+    public boolean aprovar(Pedido pedido){
         pedido.setEstado((PedidoEstado) MainFactory.getObject(PedidoEstado.class.getName() + "Aprovado"));
+        return true;
     }
     
     @Override
-    public void naoAprovar(Pedido pedido){
+    public boolean naoAprovar(Pedido pedido){
         pedido.setEstado((PedidoEstado) MainFactory.getObject(PedidoEstado.class.getName() + "NaoAprovado"));
+        return true;
     }
    
 
     @Override
     public String getEstado() {
-     return null;
+     return "Aguardando";
     }
 
     @Override
-    public void aguardar(Pedido pedido) {
-        
+    public boolean aguardar(Pedido pedido) {
+        return false;
     }
 
     @Override
-    public void sairParaEntrega(Pedido pedido) {
-        
+    public boolean sairParaEntrega(Pedido pedido) {
+        return false;
     }
 
     @Override
-    public void concluir(Pedido pedido) {
-        
+    public boolean concluir(Pedido pedido) {
+        return false;
     }
 
     @Override
-    public void cancelar(Pedido pedido) {
-        
+    public boolean cancelar(Pedido pedido) {
+        return false;
     }
 
 }
