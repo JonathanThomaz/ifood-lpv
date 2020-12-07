@@ -22,7 +22,7 @@
     </head>
     <body>
         <header class="title-top">
-            <h1>${loja.nome}</h1>
+            <h1>${loja.getNome()}</h1>
         </header>
         <%@ include file="./shared/nav.jsp" %>
         <div class="conteudo">

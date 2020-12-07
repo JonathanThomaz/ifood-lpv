@@ -16,8 +16,6 @@ public class LogarContaAction implements Action {
     public void execute(HttpServletRequest request, HttpServletResponse response) {
         String login = request.getParameter("txtLogin");
         String senha = request.getParameter("txtSenha");
-        System.out.println(login);
-        System.out.println(senha);
         
         Conta conta;
         RequestDispatcher view = null;
@@ -26,7 +24,6 @@ public class LogarContaAction implements Action {
             
             if (conta != null && conta.getLogin().equals(login) && conta.getSenha().equals(senha)) {
                 TipoConta tipo = conta.getTipoConta();
-                System.out.println("aqui "+conta.getLogin());
                 LogarConta lc = (LogarConta) MainFactory.getObject("action.conta.LogarConta" + tipo.getTipo());
                 lc.logar(request, response, conta);
             }
