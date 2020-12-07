@@ -11,7 +11,7 @@ import model.Loja;
 import model.Produto;
 
 public class ProdutoDAO {
-    
+
     private static ProdutoDAO instance = new ProdutoDAO();
 
     public static ProdutoDAO getInstance() {
@@ -35,8 +35,7 @@ public class ProdutoDAO {
             Loja loja = LojaDAO.getInstance().get(rs.getLong("produto.idLoja"));
             produto = new Produto();
             produto.setId((rs.getLong("produto.idProduto"))).setNome(rs.getString("produto.nome"))
-                    .setPreco(rs.getDouble("produto.preco")).setDisponivel(rs.getBoolean("produto.disponivel"))
-                    .setValor_desconto(rs.getDouble("produto.valor_desconto"))
+                    .setPreco(rs.getString("produto.preco")).setDisponivel(rs.getString("produto.disponivel"))
                     .setDescricao(rs.getString("produto.descricao")).setImagem(rs.getString("produto.imagem")).setLoja(loja);
         } catch (SQLException e) {
             System.out.println(e);
@@ -58,12 +57,11 @@ public class ProdutoDAO {
             ResultSet rs = st.executeQuery("SELECT * FROM produto;");
             while (rs.next()) {
                 Loja loja = LojaDAO.getInstance().get(rs.getLong("produto.idLoja"));
-                
+
                 Produto produto = new Produto();
                 produto.setId((rs.getLong("produto.idProduto"))).setNome(rs.getString("produto.nome"))
-                    .setPreco(rs.getDouble("produto.preco")).setDisponivel(rs.getBoolean("produto.disponivel"))
-                    .setValor_desconto(rs.getDouble("produto.valor_desconto"))
-                    .setDescricao(rs.getString("produto.descricao")).setImagem(rs.getString("produto.imagem")).setLoja(loja);
+                        .setPreco(rs.getString("produto.preco")).setDisponivel(rs.getString("produto.disponivel"))
+                        .setDescricao(rs.getString("produto.descricao")).setImagem(rs.getString("produto.imagem")).setLoja(loja);
                 produtos.add(produto);
             }
         } catch (SQLException e) {
@@ -89,12 +87,11 @@ public class ProdutoDAO {
                     + "WHERE produto.idLoja = '" + idLoja + "';");
             while (rs.next()) {
                 Loja loja = LojaDAO.getInstance().get(rs.getLong("produto.idLoja"));
-                
+
                 Produto produto = new Produto();
                 produto.setId((rs.getLong("produto.idProduto"))).setNome(rs.getString("produto.nome"))
-                    .setPreco(rs.getDouble("produto.preco")).setDisponivel(rs.getBoolean("produto.disponivel"))
-                    .setValor_desconto(rs.getDouble("produto.valor_desconto"))
-                    .setDescricao(rs.getString("produto.descricao")).setImagem(rs.getString("produto.imagem")).setLoja(loja);
+                        .setPreco(rs.getString("produto.preco")).setDisponivel(rs.getString("produto.disponivel"))
+                        .setDescricao(rs.getString("produto.descricao")).setImagem(rs.getString("produto.imagem")).setLoja(loja);
                 produtos.add(produto);
             }
         } catch (SQLException e) {
@@ -113,14 +110,13 @@ public class ProdutoDAO {
         try {
             conn = DatabaseLocator.getInstance().getConnection();
             st = conn.createStatement();
-            String query = "INSERT INTO produto (preco, nome, valor_desconto, disponivel, descricao, imagem, idCategoriaProduto, idLoja) "
-                    + "VALUES ("+produto.getPreco() + ", "
+            String query = "INSERT INTO produto (`preco`, `nome`, `disponivel`, `descricao`, `imagem`, `idPromocao`, `idLoja`) "
+                    + "VALUES (" + produto.getPreco() + ", "
                     + "'" + produto.getNome() + "', "
                     + produto.getDisponivel() + ", "
-                    + produto.getValor_desconto() + ", "
                     + "'" + produto.getDescricao() + "', "
                     + "'" + produto.getImagem() + "', "
-                    + "" + produto.getCategoria().getId() + ", "
+                    + "" + produto.getPromocao().getId() + ", "
                     + produto.getLoja().getId() + ");";
             st.execute(query);
         } catch (SQLException e) {
@@ -141,7 +137,6 @@ public class ProdutoDAO {
             st.execute("UPDATE produto SET preco = " + produto.getPreco() + ", "
                     + "nome = '" + produto.getNome() + "', "
                     + "disponivel = " + produto.getDisponivel() + ", "
-                    + "valor_desconto = " + produto.getValor_desconto() + ", "
                     + "descricao = '" + produto.getDescricao() + "', "
                     + "imagem = '" + produto.getImagem() + "', "
                     + "WHERE idProduto = " + produto.getId() + ";");
@@ -171,7 +166,7 @@ public class ProdutoDAO {
             closeResources(conn, st);
         }
     }
-    
+
     private void closeResources(Connection conn, Statement st) {
         try {
             if (st != null) {

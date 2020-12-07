@@ -9,20 +9,18 @@ public class Produto {
 
     private long id;
     private String nome;
-    private double preco;
-    private boolean disponivel;
-    private double valor_desconto;
+    private String preco;
+    private String disponivel;
     private String descricao;
     private String imagem;
-
+      
+    private Promocao promocao;
     private Categoria categoria;
     private Loja loja;
 
-    
-    
     public Produto() {
     }
-   
+
     public long getId() {
         return id;
     }
@@ -42,22 +40,21 @@ public class Produto {
         return this;
     }
 
-    public double getPreco() {
+    public String getPreco() {
         return preco;
     }
 
-    public Produto setPreco(double preco) {
-        preco = this.preco * (1 - this.valor_desconto);
+    public Produto setPreco(String preco) {
         this.preco = preco;
         return this;
 
     }
 
-    public boolean getDisponivel() {
+    public String getDisponivel() {
         return disponivel;
     }
 
-    public Produto setDisponivel(boolean disponivel) {
+    public Produto setDisponivel(String disponivel) {
         this.disponivel = disponivel;
         return this;
 
@@ -93,6 +90,14 @@ public class Produto {
 
     }
 
+    public Promocao getPromocao() {
+        return promocao;
+    }
+
+    public void setPromocao(Promocao promocao) {
+        this.promocao = promocao;
+    }
+
     public void save() throws SQLException, ClassNotFoundException {
         ProdutoDAO.getInstance().save(this);
     }
@@ -104,16 +109,6 @@ public class Produto {
     @Override
     public String toString() {
         return this.nome + " : R$" + this.preco;
-    }
-
-    public double getValor_desconto() {
-        return valor_desconto;
-    }
-
-    public Produto setValor_desconto(double valor_desconto) {
-        this.valor_desconto = valor_desconto;
-        this.preco = this.preco * (1 - this.valor_desconto);
-        return this;
     }
 
     public Categoria getCategoria() {

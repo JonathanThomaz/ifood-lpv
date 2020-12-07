@@ -17,10 +17,11 @@ public class LogarContaLoja implements LogarConta {
     @Override
     public void logar(HttpServletRequest request, HttpServletResponse response, Conta conta) {
         try {
-            Loja loja = LojaDAO.getInstance().get(conta.getId());
+            Loja loja = LojaDAO.getInstance().getByConta(conta.getId());
             HttpSession session = request.getSession();
 
             session.setAttribute("id", loja.getId());
+            session.setAttribute("idConta", conta.getId());
             session.setAttribute("tipo", conta.getTipoConta());
             session.setAttribute("login", conta.getLogin());
             request.setAttribute("loja",loja);

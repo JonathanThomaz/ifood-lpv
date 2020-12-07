@@ -39,7 +39,7 @@ public class LojaDAO {
                     + "INNER JOIN contato ON conta.idConta = contato.idConta "
                     + "INNER JOIN endereco ON conta.idConta = endereco.idConta "
                     + "INNER JOIN tipoConta ON conta.idTipoConta = tipoConta.idTipoConta "
-                    + "WHERE conta.idConta = " + id + ";");
+                    + "WHERE loja.idLoja = " + id + ";");
             rs.first();
 
             Conta conta = new Conta();
@@ -190,5 +190,50 @@ public class LojaDAO {
         } catch (SQLException e) {
             System.out.println(e);
         }
+    }
+
+    public Loja getByConta(long id) throws SQLException, ClassNotFoundException {
+        Loja loja = null;
+        Connection conn = null;
+        Statement st = null;
+
+        try {
+
+            conn = DatabaseLocator.getInstance().getConnection();
+            st = conn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT loja.*, contato.*, conta.*, endereco.*, tipoConta.* "
+                    + "FROM conta "
+                    + "INNER JOIN loja  ON conta.idConta = loja.idConta "
+                    + "INNER JOIN contato ON conta.idConta = contato.idConta "
+                    + "INNER JOIN endereco ON conta.idConta = endereco.idConta "
+                    + "INNER JOIN tipoConta ON conta.idTipoConta = tipoConta.idTipoConta "
+                    + "WHERE conta.idConta = " + id + ";");
+            rs.first();
+
+            Conta conta = new Conta();
+            conta.setId(rs.getLong("conta.idConta")).setLogin(rs.getString("conta.login"))
+                    .setSenha(rs.getString("conta.senha")).setTipoConta(rs.getString("tipoConta.tipo"));
+
+            Contato contato = new Contato();
+            contato.setId((rs.getLong("contato.idContato"))).setTelefone(rs.getString("contato.telefone")).
+                    setDdd(rs.getString("contato.ddd")).setEmail((rs.getString("contato.email"))).
+                    setTelefoneComplementar(rs.getString("contato.telefoneComplementar")).setConta(conta);
+
+            Endereco endereco = new Endereco();
+            endereco.setId(rs.getLong("endereco.idEndereco")).setRua(rs.getString("endereco.rua"))
+                    .setBairro(rs.getString("endereco.bairro")).setCep(rs.getString("endereco.cep"))
+                    .setNumero(rs.getString("endereco.numero")).setComplemento(rs.getString("endereco.complemento"))
+                    .setCidade(rs.getString("endereco.cidade")).setEstado(rs.getString("endereco.estado"))
+                    .setPais(rs.getString("endereco.pais")).setConta(conta);
+
+            loja = new Loja();
+            loja.setId(rs.getLong("loja.idLoja")).setNome(rs.getString("loja.nome"))
+                    .setCnpj(rs.getString("loja.CNPJ")).setDescricao(rs.getString("loja.descricao"))
+                    .setImagem(rs.getString("loja.imagem")).setConta(conta);
+
+        } finally {
+            closeResources(conn, st);
+        }
+        return loja;
     }
 }

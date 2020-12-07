@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <footer>
     <p>
-        Arthur, Enrique, Jonathan, Wellington
+        Enrique, Jonathan, Wellington
     </p>
 
     <script language="javascript" src="./js/lojafunctions.js"></script>

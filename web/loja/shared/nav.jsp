@@ -13,7 +13,7 @@
     <h5>Menu: </h5>
     <ul>
         <li><a href="#" onclick="dadosDaLoja()">Dados da Loja</a></li>
-        <li><a href="#" onclick="cadastrarProdutos()">Cadastrar produto</a></li>
+        <li><a href="FrontController?action=CadastrarProdutoLoja">Cadastrar produto</a></li>
         <li><a href="FrontController?action=PrepararProdutosLoja">Ver Meus Produtos</a></li>
         <li><a href="FrontController?action=PrepararPedidosLoja">Pedidos</a></li>
         <li><a href="FrontController?action=PrepararPromocoesLoja">Promoções</a></li>
